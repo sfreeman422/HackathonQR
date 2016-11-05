@@ -26,6 +26,13 @@ connection.connect(function(err) {
   console.log('connected as id ' + connection.threadId);
 });
 
+app.get("/", function(req, res){
+	res.send("index.html");
+})
+app.post("/api/signup", function(req, res){
+
+
+})
 //Listen on port 3000
 var port = 3000;
 //Creates a listener
