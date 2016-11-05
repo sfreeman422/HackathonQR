@@ -1,18 +1,123 @@
+<!DOCTYPE html>
 <html>
 <head>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+  <title>Sign Up</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
+
 <body>
 
+  <div class="container">
+    
+      <!-- Page Title -->
+      <div class="page-header">
+        <h1>Please Sign Up!</h1>
+      </div>
+
+
+      <!-- Enter User Credentials Panel -->
+      <div class="panel panel-default">
+        <!-- Header -->
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong>About You</strong></h3>
+        </div>
+
+        <div class="panel-body">
+          <h4>First Name</h4>
+          <div class="input-group">
+            <input id = "userFirstName" class="form-control" type="text" name="name" placeholder="John">
+            <span class="input-group-addon">(Required)</span>
+          </div> 
+
+          <br>
+
+          <h4>Last Name</h4>
+          <div class="input-group">
+            <input id = "userLastName" class="form-control" type="text" name="name" placeholder="Smith">
+            <span class="input-group-addon">(Required)</span>
+          </div>  
+
+          <br>
+
+          <h4>College</h4>
+          <div class="input-group">
+            <input id = "userCollege" class="form-control" type="text" name="name" placeholder="Rutgers University">
+            <span class="input-group-addon">(Required)</span>
+          </div>  
+
+          <br>
+
+          <h4>Email Address</h4>
+          <div class="input-group">
+            <input id = "userEmail" class="form-control" type="text" name="name" placeholder="johnsmith@hackers.edu">
+            <span class="input-group-addon">(Required)</span>
+          </div>  
+
+          <br>
+
+          <h4>Create a Password</h4>
+          <div class="input-group">
+            <input id = "userPassword" class="form-control" type="password" name="name" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;">
+            <span class="input-group-addon">(Required)</span>
+          </div>  
+
+          <br>
+
+          <h4>Cellphone Number</h4>
+          <div class="input-group">
+            <input id = "userPhoneNumber" class="form-control" type="text" name="text" placeholder="(555) 321-0000">
+            <span class="input-group-addon">(Required)</span>
+          </div>  
+
+          <br>
+
+          <h4>Link to a Photo Image</h4>
+          <div class="input-group">
+            <input id = "userImage" class="form-control" type="text" name="name" placeholder="http://yourphotolink.com.jpg/">
+            <span class="input-group-addon">(Required)</span>
+          </div>
+
+          <br>
+
+          <h4>Link to your GitHub</h4>
+          <div class="input-group">
+            <input id = "userGitHub" class="form-control" type="text" name="name" placeholder="https://github.com/username/">
+            <span class="input-group-addon">(Required)</span>
+          </div>
+          
+          <br>
+          
+          <h4>Link to your Resume</h4>
+          <div class="input-group">
+            <input id = "userResume" class="form-control" type="text" name="name" placeholder="https://drive.google.com/drive/resume/">
+            <span class="input-group-addon">(Optional)</span>
+          </div>
+        </div>
+      </div>
+
+
+    <!-- Submit Button -->
+    <button id="submitButton" type="submit" class="btn btn-md btn-danger btn-block"><h4><span class="glyphicon glyphicon-send"></span> Submit</h4></button>
+
+  </div>
+
+
+          
 
 
 
 
 
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery.js"></script>
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!-- Input Validation JavaScript -->
+
+<!-- Submission JavaScript -->
+
 </body>
 </html>
