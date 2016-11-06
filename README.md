@@ -18,3 +18,18 @@ User authentication is a critical component in cyber security, and our team is p
 
 ## What's next for HackOrg
 The next steps for HackOrg are a more refined administrator sign up process and an option to track hardware rentals at the Hackathon. We believe that a refined hardware rental process can improve student experience. Our plan is to have a timed session, where users will receive a text when it is time to bring back their device to the admins so that another team can rent it. 
+
+##Screenshots
+
+Landing Page for HackOrg
+
+![homepage](/images/homepage.png)
+
+Profile Page
+![profilepage](/images/profile.png)
+
+Profile Page QR Section
+![profilepageqr](/images/profileqr.png)
+
+Admin View- This is the Profile page screenshot from above, viewed as an admin. Note the additional options.
+![adminview](/images/adminoptions.png)
