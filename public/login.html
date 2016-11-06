@@ -82,7 +82,8 @@
   <div class = "row">
   	<div class = "col-sm-4"></div>
   	<div class = "col-sm-4">
-  		<input id = "userName" class="form-control" type="text" name="userName" placeholder="example@example.com">
+    <form action = "/login" method="post">
+  		<input id = "userName" class="form-control" type="text" name="email" placeholder="example@example.com">
   		<input id = "password" class="form-control" type="password" name="password" placeholder="password">
   	</div>
   </div>
@@ -91,6 +92,7 @@
   	<div class = "col-sm-4"></div>
   	<div class = "col-sm-4">
   		<button id="submitButton" type="submit" class="btn btn-md btn-success"><h4>Submit</h4></button>
+    </form>
   	</div>
   	</div>
 </div>

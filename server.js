@@ -1,55 +1,37 @@
+//requires
 var express = require('express');
-var bodyParser = require('body-parser');
-var mysql = require('mysql');
-
 var app = express();
-//Serve static content for the app from the "public" directory in the application directory.
+var port = process.env.PORT || 3000;
+var mongoose = require('mongoose');
+var passport = require('passport');
+var flash = require('connect-flash');
+var morgan = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var session = require('express-session');
+var configDB = require('./db/database.js');
+
+//Configuration
+mongoose.connect(configDB.url); //Connect to mongoDB
+
+require('./config/passport.js')(passport) //Pass passport to config passport
+
+
+//set up our express application
 app.use(express.static(process.cwd() + '/public'));
+app.use(morgan('dev')); //log every request to the console
+app.use(cookieParser()); // read cookies for session
+app.use(bodyParser()); //get information from HTML forms
 
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
-
-//mySQL connection
-// var connection = mysql.createConnection({
-//   host     : 'localhost',
-//   user     : 'root',
-//   password : '',
-//   database : 'eventDB'
-// });
-// //Connects to the connection above. 
-// connection.connect(function(err) {
-//   if (err) {
-//     console.error('error connecting: ' + err.stack);
-//     return;
-//   };
-
-//   console.log('connected as id ' + connection.threadId);
-// });
+//required passport stuff
+app.use(session({secret: 'whatisthissupposedtobe'}));
+app.use(passport.initialize());
+app.use(passport.session()); //persistent login session
+app.use(flash()); //use connect flash for flash messages
 
 
-// API ROUTE to add new user to SQL
-var addNewUserToSQL = require('./private/addNewUserToSQL.js')
-addNewUserToSQL(app);
+//routes
+require('./routing/routes.js')(app, passport); //load our routes and pass in app and fully configured passport
 
-
-// API ROUTE for Admin users to edit SQL database
-var qrAPImenu = require('./private/qrAPImenu.js')
-qrAPImenu(app);
-
-
-
-
-app.get("/", function(req, res){
-	res.send("/public/index.html");
-});
-
-
-app.get("/login", function(req, res){
-	res.send("/public/login.html");
-})
-
-
-//Listen on port 3000
-var port = 3000;
-//Creates a listener
 app.listen(port);
+console.log("Listening on "+port);
