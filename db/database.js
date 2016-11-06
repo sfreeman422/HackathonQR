@@ -1,3 +1,3 @@
 module.exports = {
-	'url': 'mongodb://<dbuser>:<dbpassword>@ds145997.mlab.com:45997/heroku_3952vv8j'
+	'url': 'mongodb://heroku_3952vv8j@ds145997.mlab.com:45997/heroku_3952vv8j'
 }
