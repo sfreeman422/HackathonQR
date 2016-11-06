@@ -2,11 +2,11 @@ module.exports = function(app, passport){
 
 //Gets the index.html and servers it when hitting /
 	app.get("/", function(req, res){
-		res.send("/public/index.html");
+		res.render("index");
 	});
 //Gets the login form and serves it when hitting /login with a get
 	app.get("/login", function(req, res){
-		res.send("/public/login.html");
+		res.render("login");
 	})
 //Posts the login form to the login route with a post request. 
 	app.post("/login", passport.authenticate('local-login', {
@@ -16,7 +16,7 @@ module.exports = function(app, passport){
 	}));
 //Gets the sign up form 
 	app.get("/signup", function(req, res){
-		res.send("/public/signup.html");
+		res.render("signup");
 	})
 //Posts the sign up form
 	app.post("/signup", passport.authenticate('local-signup', {
@@ -26,16 +26,17 @@ module.exports = function(app, passport){
 	}));
 //Gets the protected profile view. 
 	app.get('/profile', isLoggedIn, function(req, res){
-		res.send("/public/profile.html");//This may need to use handlebars
+		res.render("profile");
 	});
 
-app.get('/logout', function(req, res){
-	req.logout();
-	res.redirect('/');
-});
+	app.get('/logout', function(req, res){
+		req.logout();
+		res.redirect('/');
+	});
 
 function isLoggedIn(req, res, next){
 	if(req.isAuthenticated())
+		console.log(req);
 		return next();
 	//else
 	res.redirect('/');

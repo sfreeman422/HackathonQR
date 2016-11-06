@@ -1,0 +1,98 @@
+<!-- Enter User Credentials Panel -->
+<div class="container-fluid bg-1 text-center">
+  <div class="container"> 
+    <div class="panel panel-default">
+      <!-- Header -->
+      <div class="panel-heading">
+        <h1 class="panel-title"><strong>Tell us about yourself!</strong></h1>
+      </div>
+<form action= "/signup" method="post">
+      <div class="panel-body">
+        <h4 class="signupFormTitle">First Name</h4>
+        <div class="input-group">
+          <input id = "userFirstName" class="input-required form-control" type="text" name="firstName" placeholder="John">
+          <span class="input-group-addon">(Required)</span>
+        </div> 
+
+        <br>
+
+        <h4 class="signupFormTitle">Last Name</h4>
+        <div class="input-group">
+          <input id = "userLastName" class="input-required form-control" type="text" name="lastName" placeholder="Smith">
+          <span class="input-group-addon">(Required)</span>
+        </div>  
+
+        <br>
+
+        <h4 class="signupFormTitle">College</h4>
+        <div class="input-group">
+          <input id = "userCollege" class="input-required form-control" type="text" name="school" placeholder="Rutgers University">
+          <span class="input-group-addon">(Required)</span>
+        </div>  
+
+        <br>
+
+        <h4 class="signupFormTitle">Email Address</h4>
+        <div class="input-group">
+          <input id = "userEmail" class="input-required form-control" type="text" name="email" placeholder="johnsmith@hackers.edu">
+          <span class="input-group-addon">(Required)</span>
+        </div>  
+
+        <br>
+
+        <h4 class="signupFormTitle">Create a Password</h4>
+        <div class="input-group">
+          <input id = "userPassword" class="input-required form-control" type="password" name="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;">
+          <span class="input-group-addon">(Required)</span>
+        </div>  
+
+        <br>
+
+        <h4 class="signupFormTitle">Cellphone Number</h4>
+        <div class="input-group">
+          <input id = "userPhoneNumber" class="input-required form-control" type="text" name="phoneNum" placeholder="5553210000">
+          <span class="input-group-addon">(Required)</span>
+        </div>  
+
+        <br>
+
+        <h4 class="signupFormTitle">Link to a Photo Image</h4>
+        <div class="input-group">
+          <input id = "userImage" class="input-required form-control" type="text" name="photoURL" placeholder="http://yourphotolink.com.jpg/">
+          <span class="input-group-addon">(Required)</span>
+        </div>
+
+        <br>
+
+        <h4 class="signupFormTitle">Link to your GitHub</h4>
+        <div class="input-group">
+          <input id = "userGitHub" class="input-required form-control" type="text" name="githubURL" placeholder="https://github.com/username/">
+          <span class="input-group-addon">(Required)</span>
+        </div>
+        
+        <br>
+        
+        <h4 class="signupFormTitle">Link to your Resume</h4>
+        <div class="input-group">
+          <input id = "userResume" class="form-control" type="text" name="resumeURL" placeholder="https://drive.google.com/drive/resume/">
+          <span class="input-group-addon">(Optional)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button id="submitButton" type="submit" class="btn btn-md btn-default btn-block"><h4 class="bg-2"><span class="glyphicon glyphicon-send"></span> Submit</h4></button>
+</form>
+  </div>
+</div>
+
+        
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!-- Submission JavaScript -->
+<script src="assets/javascript/signupSubmit.js"></script>
+

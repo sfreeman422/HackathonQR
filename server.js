@@ -10,6 +10,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var configDB = require('./db/database.js');
+var exphbs = require('express-handlebars');
 
 //Configuration
 mongoose.connect(configDB.url); //Connect to mongoDB
@@ -18,6 +19,12 @@ require('./config/passport.js')(passport) //Pass passport to config passport
 
 
 //set up our express application
+app.engine('handlebars', exphbs({
+    defaultLayout: 'main'
+}));
+app.set('view engine', 'handlebars');
+
+//App.uses
 app.use(express.static(process.cwd() + '/public'));
 app.use(morgan('dev')); //log every request to the console
 app.use(cookieParser()); // read cookies for session
