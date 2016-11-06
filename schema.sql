@@ -22,4 +22,6 @@ PRIMARY KEY(ID)
 );
 
 INSERT INTO users (isAdmin, firstName, lastName, photoURL, school, githubURL, resumeURL, phoneNum, email, pwd, checkedIn, ateBreakfast, ateLunch, ateDinner) values(true, "Steve", "Freeman", "https://lh5.googleusercontent.com/-b1FbiqsVlTo/AAAAAAAAAAI/AAAAAAAABlk/iPh6YcZ7OiQ/photo.jpg", "Ramapo College", "https://github.com/sfreeman422", "", "9085783770", "sfreeman422@gmail.com", "password123", false, false, false, false);
+INSERT INTO users (isAdmin, firstName, lastName, photoURL, school, githubURL, resumeURL, phoneNum, email, pwd, checkedIn, ateBreakfast, ateLunch, ateDinner) values(true, "Tommy", "Thompson", "https://avatars1.githubusercontent.com/u/17932981?v=3&s=466", "Rutgers University", "https://github.com/tomtom28", "", "7329832487", "tomthompson828@gmail.com", "Something123", false, false, false, false);
+
 
