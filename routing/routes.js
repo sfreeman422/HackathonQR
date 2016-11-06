@@ -42,24 +42,86 @@ var User = require('../config/user.js');
 			var studentUpdate = req.params.email; 
 			User.findOne({"local.email": studentUpdate}, function(err, res){
 				console.log(res);
-				//If statement to check the user in if they are not checked in and to check them out if they are checked in. 
-				if(res.local.checkedIn){
-					User.findOneAndUpdate({"local.email": studentUpdate}, {"local.checkedIn": false}, function(err, resp){
-						console.log(resp);
-					})
-				}
-				else{
-					User.findOneAndUpdate({"local.email": studentUpdate}, {"local.checkedIn": true}, function(err, resp){
-						console.log(resp);
-					})
-				}
-			})
+			});
 			res.render("profile");
 		}
 		else{
 			res.render("index");
 		}
-	})
+	});
+
+	app.get('/update/api/:email/:updateTask', isLoggedIn, function(req, res){
+		if(req.user.local.isAdmin){
+			var userUpdate = req.params.email;
+			var updateTask = req.params.updateTask;
+			var userCheckedIn;
+			var userAteBreakfast;
+			var userAteLunch;
+			var userAteDinner;
+
+//This starts the entire mongo stuff to update the DB. 
+			User.findOne({"local.email": userUpdate}, function(err, res){
+				userCheckedIn = res.local.checkedIn;
+				userAteBreakfast = res.local.ateBreakfast; 
+				userAteLunch = res.local.ateLunch;
+				userAteDinner = res.local.ateDinner;
+
+			console.log("UserID: "+userUpdate);
+			console.log("Checked In: "+userCheckedIn);
+			console.log("Ate Breakfast: "+userAteBreakfast);
+			console.log("Ate Lunch: "+userAteLunch);
+			console.log("Ate Dinner: "+userAteDinner);
+
+			if(updateTask == "checkIn"){
+				if(userCheckedIn == false){
+						User.findOneAndUpdate({"local.email": userUpdate}, {"local.checkedIn": true}, function(err, resp){
+						console.log(resp);
+					})
+				}
+				else{
+					User.findOneAndUpdate({"local.email": userUpdate}, {"local.checkedIn": false}, function(err, resp){
+						console.log(resp);
+					})
+				}
+			}
+			else if (updateTask == "breakfast"){
+				if(userAteBreakfast == false){
+				User.findOneAndUpdate({"local.email": userUpdate}, {"local.ateBreakfast": true}, function(err, resp){
+						console.log(resp);
+					})					
+				}
+				else{
+					console.log("User has already eaten breakfast");
+				}
+			}
+			else if (updateTask == "lunch"){
+				if(userAteLunch == false){
+				User.findOneAndUpdate({"local.email": userUpdate}, {"local.ateBreakfast": true}, function(err, resp){
+						console.log(resp);
+					})	
+				}
+				else{
+					console.log("User already ate lunch");
+				}
+			}
+			else if (updateTask == "dinner"){
+				if(userAteDinner == false){
+					User.findOneAndUpdate({"local.email": userUpdate}, {"local.ateDinner": true}, function(err, resp){
+						console.log(resp);
+					})
+				}
+				else{
+					console.log("User has already ate dinner.");
+				}
+			}
+			else{
+				console.log("Invalid input");
+			}
+		});
+	};
+//Ends the mongo stuff
+});
+
 
 	app.get('/logout', function(req, res){
 		req.logout();
