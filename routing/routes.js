@@ -42,6 +42,17 @@ var User = require('../config/user.js');
 			var studentUpdate = req.params.email; 
 			User.findOne({"local.email": studentUpdate}, function(err, res){
 				console.log(res);
+				//If statement to check the user in if they are not checked in and to check them out if they are checked in. 
+				if(res.local.checkedIn){
+					User.findOneAndUpdate({"local.email": studentUpdate}, {"local.checkedIn": false}, function(err, resp){
+						console.log(resp);
+					})
+				}
+				else{
+					User.findOneAndUpdate({"local.email": studentUpdate}, {"local.checkedIn": true}, function(err, resp){
+						console.log(resp);
+					})
+				}
 			})
 			res.render("profile");
 		}
