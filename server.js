@@ -27,12 +27,14 @@ connection.connect(function(err) {
 });
 
 app.get("/", function(req, res){
-	res.send("index.html");
+	res.send("/public/index.html");
+});
+
+app.get("/login", function(req, res){
+	res.send("/public/login.html");
 })
-app.post("/api/signup", function(req, res){
 
 
-})
 //Listen on port 3000
 var port = 3000;
 //Creates a listener
