@@ -1,3 +1,5 @@
+##This project was awarded an MLH Finalist Medal at HackNJIT2016.
+
 ## Inspiration
 After seeing the hard work that goes into running a Hackthon, our team was inspired to give back to the hacker community by creating a fullstack webapp that makes running a Hackthon event a little easier.
 
