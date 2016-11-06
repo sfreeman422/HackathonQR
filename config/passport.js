@@ -32,7 +32,6 @@ module.exports = function(passport){
 	}, 
 	//The callback
 	function(req, email, password, done){
-		console.log(req);
 		//asynchronous 
 		//User.findOne wont fire unless data is sent back
 		process.nextTick(function(){
@@ -90,16 +89,17 @@ module.exports = function(passport){
 	},
 	function(req, email, password, done){
 		User.findOne({'local.email' : email}, function(err, user){
+			console.log(user);
 			if(err)
 				return done(err);
 
 			//if no user is found
 			if(!user)
-				return done(null, false, req.flash('loginMessage', 'No user found.'));
+				return done(null, false, console.log("User not found."));
 			//if user is found but pw is wrong
 			if(!user.validPassword(password))
-				return done(null, false, req.flash('loginMessage', 'Oops! Wrong password. Try again.'));
-
+				return done(null, false, console.log("PW is wrong."));
+			//if all is well login
 			return done(null, user);
 		});
 	}));
