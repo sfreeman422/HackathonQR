@@ -33,10 +33,10 @@ addNewUserToSQL(app);
 
 
 // API ROUTE for Admin users to edit SQL database
-app.get('/admin-api/:id', function(req, res){
-  res.send('/public/login.html');
-  console.log(req)
-});
+var qrAPImenu = require('./private/qrAPImenu.js')
+qrAPImenu(app);
+
+
 
 
 app.get("/", function(req, res){
