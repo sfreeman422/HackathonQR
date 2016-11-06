@@ -37,23 +37,30 @@ var User = require('../config/user.js');
 		res.render("profile", userObj);
 	});
 //Get request for the update page. This page should provide information based on the :email and options to checkin and track meals. 
-	app.get('/update/:email', isLoggedIn, function(req, res){
+	app.get('/update/:email', isLoggedIn, function(req, resp){
 		if(req.user.local.isAdmin){
 			var studentUpdate = req.params.email; 
 			User.findOne({"local.email": studentUpdate}, function(err, res){
 				console.log(res);
+				var userObj = {
+					fullName: res.local.firstName + " " + res.local.lastName,
+					photoURL: res.local.photoURL,
+					school: res.local.school,
+					email: res.local.email
+				}
+				resp.render("updateinfo", userObj);
 			});
-			res.render("profile");
 		}
 		else{
-			res.render("index");
+			resp.render("index");
 		}
 	});
-
-	app.get('/update/api/:email/:updateTask', isLoggedIn, function(req, res){
+//Route to update the desired task for the specific user. 
+	app.get('/update/:email/:updateTask', isLoggedIn, function(req, res){
 		if(req.user.local.isAdmin){
 			var userUpdate = req.params.email;
 			var updateTask = req.params.updateTask;
+			console.log(updateTask);
 			var userCheckedIn;
 			var userAteBreakfast;
 			var userAteLunch;
@@ -96,7 +103,7 @@ var User = require('../config/user.js');
 			}
 			else if (updateTask == "lunch"){
 				if(userAteLunch == false){
-				User.findOneAndUpdate({"local.email": userUpdate}, {"local.ateBreakfast": true}, function(err, resp){
+				User.findOneAndUpdate({"local.email": userUpdate}, {"local.ateLunch": true}, function(err, resp){
 						console.log(resp);
 					})	
 				}

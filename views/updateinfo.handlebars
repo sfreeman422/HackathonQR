@@ -1,0 +1,35 @@
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center">
+ <h1 id="studentName" class="margin">{{fullName}}</h1>
+ <img id="studentImage" src={{photoURL}}>
+ <h3 id="studentCollege" class="margin">{{school}}</h3>
+</div>
+
+<!-- Second Container -->
+<div class="container-fluid bg-2 text-center">
+ <h2 class="margin">Please select an Option</h2>
+ 
+ <form action="/update/:email/"+value method="GET">
+   <h4>Event Admission</h4>
+   <a href="/update/{{email}}/checkIn"><button type="button" class="btn btn-danger">Check In</button></a>
+   <br><br>
+
+   <h4>Confirm Meals</h4>
+   <a href="/update/{{email}}/breakfast"><button type="button" class="btn btn-info" name="subject" value="breakfast">Breakfast</button></a>
+   <a href="/update/{{email}}/lunch"><button type="button" class="btn btn-info" name="subject" value="lunch">Lunch</button></a>
+   <a href="/update/{{email}}/dinner"><button type="button" class="btn btn-info" name="subject" value="dinner">Dinner</button></a>
+ </form>
+
+</div>
+
+
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
+  <script>
+  	$('.btn').on( "click", function() {
+	  alert('Info Updated!')
+	});
+  </script>
