@@ -1,5 +1,5 @@
 module.exports = function(app, passport){
-
+var user = require('../config/user.js');
 //Gets the index.html and servers it when hitting /
 	app.get("/", function(req, res){
 		res.render("index");
@@ -26,7 +26,14 @@ module.exports = function(app, passport){
 	}));
 //Gets the protected profile view. 
 	app.get('/profile', isLoggedIn, function(req, res){
-		res.render("profile");
+		console.log(req.user.local);
+		var userObj = {
+			fullName: req.user.local.firstName + " " + req.user.local.lastName,
+			photoURL: req.user.local.photoURL,
+			school: req.user.local.school,
+			qrcode: "http://api.qrserver.com/v1/create-qr-code/?data="+req.user.local.email+"&size=200x200"
+		}
+		res.render("profile", userObj);
 	});
 
 	app.get('/logout', function(req, res){
@@ -36,7 +43,6 @@ module.exports = function(app, passport){
 
 function isLoggedIn(req, res, next){
 	if(req.isAuthenticated())
-		console.log(req);
 		return next();
 	//else
 	res.redirect('/');
