@@ -12,7 +12,7 @@ var userSchema = mongoose.Schema({
         lastName     : String,
         photoURL     : String,
         school       : String,
-        githubURL     : String,
+        githubURL    : String,
         resumeURL    : String,
         phoneNum     : String,
         checkedIn    : Boolean,
