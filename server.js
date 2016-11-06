@@ -16,6 +16,7 @@ mongoose.connect(configDB.url); //Connect to mongoDB
 
 require('./config/passport.js')(passport) //Pass passport to config passport
 
+
 //set up our express application
 app.use(express.static(process.cwd() + '/public'));
 app.use(morgan('dev')); //log every request to the console
@@ -27,6 +28,7 @@ app.use(session({secret: 'whatisthissupposedtobe'}));
 app.use(passport.initialize());
 app.use(passport.session()); //persistent login session
 app.use(flash()); //use connect flash for flash messages
+
 
 //routes
 require('./routing/routes.js')(app, passport); //load our routes and pass in app and fully configured passport
