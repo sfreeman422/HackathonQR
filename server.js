@@ -10,25 +10,39 @@ app.use(express.static(process.cwd() + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }))
 
 //mySQL connection
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : '',
-  database : 'eventDB'
-});
-//Connects to the connection above. 
-connection.connect(function(err) {
-  if (err) {
-    console.error('error connecting: ' + err.stack);
-    return;
-  };
+// var connection = mysql.createConnection({
+//   host     : 'localhost',
+//   user     : 'root',
+//   password : '',
+//   database : 'eventDB'
+// });
+// //Connects to the connection above. 
+// connection.connect(function(err) {
+//   if (err) {
+//     console.error('error connecting: ' + err.stack);
+//     return;
+//   };
 
-  console.log('connected as id ' + connection.threadId);
+//   console.log('connected as id ' + connection.threadId);
+// });
+
+
+// API ROUTE to add new user to SQL
+var addNewUserToSQL = require('./private/addNewUserToSQL.js')
+addNewUserToSQL(app);
+
+
+// API ROUTE for Admin users to edit SQL database
+app.get('/admin-api/:id', function(req, res){
+  res.send('/public/login.html');
+  console.log(req)
 });
+
 
 app.get("/", function(req, res){
 	res.send("/public/index.html");
 });
+
 
 app.get("/login", function(req, res){
 	res.send("/public/login.html");
