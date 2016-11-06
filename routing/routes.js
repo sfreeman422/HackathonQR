@@ -21,7 +21,7 @@ module.exports = function(app, passport){
 //Posts the sign up form
 	app.post("/signup", passport.authenticate('local-signup', {
 		successRedirect: '/profile', //redirect to the secure profile
-		failureRedirect: '/signup', //redirect back to signup page
+		failureRedirect: '/', //redirect back to signup page
 		failureFlash: true //allow flash messsages
 	}));
 //Gets the protected profile view. 

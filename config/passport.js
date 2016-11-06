@@ -32,6 +32,7 @@ module.exports = function(passport){
 	}, 
 	//The callback
 	function(req, email, password, done){
+		console.log(req);
 		//asynchronous 
 		//User.findOne wont fire unless data is sent back
 		process.nextTick(function(){
@@ -41,6 +42,7 @@ module.exports = function(passport){
 
 //User.findOne is a mongoose thing that searches the mongodb for the object you pass in. 
 			User.findOne({'local.email' : email }, function(err, user){
+
 				//throw errs
 				if(err)
 					return done(err);
