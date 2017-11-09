@@ -55,10 +55,10 @@ function collectInputs(){
  
     // POST new student to databse
     var currentURL = window.location.origin;
-    $.post(currentURL + "/api/signup", newStudent, function(data){
+    $.post(currentURL + "/signup", newStudent, function(data){
 
       // user will be re-routed to index page
-      alert('Thank you, ' + data + '! You are registered.');
+      alert('Thank you! You are registered.');
       window.location.assign(currentURL)
 
     }); // end AJAX POST

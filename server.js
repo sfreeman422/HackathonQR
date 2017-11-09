@@ -13,8 +13,15 @@ var configDB = require('./db/database.js');
 var exphbs = require('express-handlebars');
 
 //Configuration
-mongoose.connect(configDB.url); //Connect to mongoDB
+mongoose.connect(configDB.url) //Connect to mongoDB
+const db = mongoose.connection;
 
+db.on('open', () => {
+  console.log('Connected to Mongo');
+});
+db.on('error', (err) => {
+  console.log('Error connecting to Mongo: ' + err);
+})
 require('./config/passport.js')(passport) //Pass passport to config passport
 
 

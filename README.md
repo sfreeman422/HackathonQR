@@ -1,8 +1,24 @@
-##This project was awarded an MLH Finalist Medal at HackNJIT2016.
+## This project was awarded an MLH Finalist Medal at HackNJIT2016.
 
-It can be viewed at: http://hackorg.herokuapp.com/
+It can be viewed at: http://hackorg.herokuapp.com/.
 
+In order to test, please use the following credentials:
 
+`
+Admin Account:
+  User: admin@admin.com
+  Pass: admin
+Test User Account:
+  User: test@test.com
+  Pass: test
+`
+Test by logging into your computer as the test user, and into your phone as the admin. Scan the QR code on the test users profile page, and let the magic happen. 
+
+Please note, the above link is reflective of an older version of this project. This project has been re-opened for development by Steve as of 11/9/17. Planned changes include:
+- Fixing issues with the updating of the users profile page
+- Rewriting the entire web app using ES6
+- Rewriting the UI in React
+- Rewriting the routes to adhere to REST standards
 
 ## Inspiration
 After seeing the hard work that goes into running a Hackthon, our team was inspired to give back to the hacker community by creating a fullstack webapp that makes running a Hackthon event a little easier.
@@ -25,7 +41,7 @@ User authentication is a critical component in cyber security, and our team is p
 ## What's next for HackOrg
 The next steps for HackOrg are a more refined administrator sign up process and an option to track hardware rentals at the Hackathon. We believe that a refined hardware rental process can improve student experience. Our plan is to have a timed session, where users will receive a text when it is time to bring back their device to the admins so that another team can rent it. 
 
-##Screenshots
+## Screenshots
 
 Landing Page for HackOrg
 

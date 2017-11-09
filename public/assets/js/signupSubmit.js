@@ -55,6 +55,6 @@ function collectInputs(){
  
     // POST new student to databse
     var currentURL = window.location.origin;
-    $.post(currentURL + "/api/signup", newStudent); // end AJAX POST
+    $.post(currentURL + "/signup", newStudent); // end AJAX POST
 
 }

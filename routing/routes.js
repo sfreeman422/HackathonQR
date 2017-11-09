@@ -26,13 +26,15 @@ var User = require('../config/user.js');
 	}));
 //Gets the protected profile view. 
 	app.get('/profile', isLoggedIn, function(req, res){
-		console.log(req.user.local);
+    console.log(req.user.local);
+    let qrEmail = req.user.local.email;
+    qrEmail = qrEmail.replace('@', '%40');
 		var userObj = {
 			fullName: req.user.local.firstName + " " + req.user.local.lastName,
 			photoURL: req.user.local.photoURL,
 			school: req.user.local.school,
-			endpointURL: "http://localhost:3000/",//not finished
-			qrcode: "http://api.qrserver.com/v1/create-qr-code/?data="+req.user.local.email+"&size=200x200"
+			endpointURL: "https://hackorg.herokuapp.com",//not finished
+			qrcode: "http://api.qrserver.com/v1/create-qr-code/?data=https%3A%2F%2Fhackorg.herokuapp.com%2Fupdate%2F"+qrEmail+"&size=200x200"
 		}
 		res.render("profile", userObj);
 	});
@@ -82,7 +84,7 @@ var User = require('../config/user.js');
 			if(updateTask == "checkIn"){
 				if(userCheckedIn == false){
 						User.findOneAndUpdate({"local.email": userUpdate}, {"local.checkedIn": true}, function(err, resp){
-						console.log(resp);
+            console.log(resp);
 					})
 				}
 				else{
