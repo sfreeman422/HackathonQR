@@ -5,12 +5,17 @@ It can be viewed at: http://hackorg.herokuapp.com/.
 In order to test, please use the following credentials:
 
 `
-<br/>Admin Account:
-   <br/>User: admin@admin.com
-  <br/>Pass: admin
-  <br/>Test User Account:
-   <br/>User: test@test.com
-   <br/>Pass: test
+Admin Account:
+
+  User: admin@admin.com
+
+  Pass: admin
+
+  Test User Account:
+
+   User: test@test.com
+   
+   Pass: test
 `
 Test by logging into your computer as the test user, and into your phone as the admin. Scan the QR code on the test users profile page, and let the magic happen. 
 
